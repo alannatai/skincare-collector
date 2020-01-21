@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Product Details</h1>
+
+<div class="card">
+  <div class="card-content">
+      <span class="card-title">{{ product.name }}</span>
+      <p>Price: ${{ product.price }}</p>
+      <p>Star Ingredients: {{ product.star_ingredients }}</p>
+      {% if product.rating >= 4 %}
+        <p>Rating: <span style="color: palevioletred">{{ product.rating }}</span></p>
+      {% else %}
+        <p>Rating: {{ product.rating }}</p>
+      {% endif %}
+      <br>
+      <p>Pros: {{ product.pros }}</p>
+      <p>Cons: {{ product.cons }}</p>
+      <p>Buy Again: {{ product.buy_again }}</p>
+  </div>
+</div>
+
+{% endblock %}

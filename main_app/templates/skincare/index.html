@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Skincare List</h1>
+
+{% for product in skincare %}
+    <div class="card">
+      <a href="{% url 'detail' product.id %}">
+        <div class="card-content">
+            <span class="card-title">{{ product.name }}</span>
+            <p>Price: ${{ product.price }}</p>
+            <p>Star Ingredients: {{ product.star_ingredients }}</p>
+            {% if product.rating >= 4 %}
+              <p>Rating: <span style="color: palevioletred">{{ product.rating }}</span></p>
+            {% else %}
+              <p>Rating: {{ product.rating }}</p>
+            {% endif %}
+        </div>
+      </a>
+    </div>
+{% endfor %}
+
+{% endblock %}
