@@ -8,17 +8,21 @@
     <title>Skincare Collector</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 <body>
     <header class="navbar-fixed">
         <nav>
-            <div class="nav-wrapper">
+            <div class="nav-wrapper teal lighten-3">
                 <ul>
                     <li><a href="/" class="left brand-logo">&nbsp;&nbsp;Skincare Collector</a></li>
                 </ul>
                 <ul class="right">
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/skincare">Skincare</a></li>
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="{% url 'ingredients_create' %}">Add Ingredient</a></li>
+                    <li><a href="{% url 'ingredients_index' %}">View All Ingredients</a></li>
+                    <li><a href="{% url 'skincare_create' %}">Add Product</a></li>
+                    <li><a href="{% url 'index' %}">Skincare</a></li>
                 </ul>
             </div>
         </nav>
@@ -27,7 +31,7 @@
         {% block content %}
         {% endblock %}
     </main>
-  	 <footer class="page-footer">
+  	 <footer class="page-footer teal lighten-1">
        <div class="right">By Alanna Tai</div>
     </footer>
 </body>
