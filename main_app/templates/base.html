@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Skincare Collector</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
@@ -19,11 +20,17 @@
                 </ul>
                 <ul class="right">
                     <li><a href="{% url 'about' %}">About</a></li>
+                  {% if user.is_authenticated %}
                     <li><a href="{% url 'ingredients_create' %}">Add Ingredient</a></li>
                     <li><a href="{% url 'ingredients_index' %}">View All Ingredients</a></li>
                     <li><a href="{% url 'skincare_create' %}">Add Product</a></li>
                     <li><a href="{% url 'index' %}">Skincare</a></li>
-                </ul>
+                    <li><a href="{% url 'logout' %}">Log Out</a></li>
+                  {% else %}
+                    <li><a href="{% url 'signup' %}">Sign Up</a></li>
+                    <li><a href="{% url 'login' %}">Log In</a></li>
+                  {% endif %}
+                </ul> 
             </div>
         </nav>
     </header>
